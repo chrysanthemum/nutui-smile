@@ -1,19 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { View } from '@tarojs/components'
-import { Button } from "@nutui/nutui-react-taro"
+import { Tabs } from "@nutui/nutui-react-taro"
 import './index.scss'
 
 function Index() {
+    const [tab1value, setTab1value] = useState('0');
+
   return (
     <View className="nutui-react-demo">
-      <View className="index">
-        欢迎使用 NutUI React 开发 Taro 多端项目。
-      </View>
-      <View className="index">
-        <Button type="primary" className="btn">
-          NutUI React Button
-        </Button>
-      </View>
+        <Tabs value={tab1value} onChange={(value) => {
+            setTab1value(value)
+        }} type="smile">
+            <Tabs.TabPane title="Tab 1"> Tab 1 </Tabs.TabPane>
+            <Tabs.TabPane title="Tab 2"> Tab 2 </Tabs.TabPane>
+            <Tabs.TabPane title="Tab 3"> Tab 3 </Tabs.TabPane>
+        </Tabs>
+
     </View>
   )
 }
